@@ -1,0 +1,13 @@
+{
+  "name": "kalai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gilles ASSOUROU <progch@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
