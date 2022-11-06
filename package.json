@@ -4,10 +4,41 @@
   "main": "index.js",
   "author": "Gilles ASSOUROU <progch@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"yarn watch:tsc\" \"yarn watch:server\"",
+    "watch:tsc": "npx tsc --watch",
+    "watch:server": "nodemon ./dist/index.js",
+    "test": "jest --watchAll --coverage"
+  },
   "dependencies": {
-    "express": "^4.18.2"
+    "better-sqlite3": "^7.6.2",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/better-sqlite3": "^7.6.2",
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.14",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.11.9",
+    "@types/uuid": "^8.3.4",
+    "concurrently": "^7.5.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.3",
+    "jest": "^29.2.2",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
     "typescript": "^4.8.4"
+  },
+  "volta": {
+    "node": "18.12.0"
   }
 }
