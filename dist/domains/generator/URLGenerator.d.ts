@@ -1,8 +1,7 @@
-export interface URLGeneratorType {
-    long: string;
-    short: string;
-}
-declare class URLGenerator {
-    static generate(url: string, id: string): URLGeneratorType;
+import { URLGeneratorType, URLGeneratorInterface } from "./URLGeneratorInterface";
+declare class URLGenerator implements URLGeneratorInterface {
+    private test;
+    generate(url: string, id: string): URLGeneratorType;
+    private isValidUrl;
 }
 export default URLGenerator;

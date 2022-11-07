@@ -1,6 +1,11 @@
 import { Request, Response } from 'express';
 import ContractController from '../../contract.controller';
+import { URLGeneratorInterface } from '../../../../domains/generator/URLGeneratorInterface';
+import ShortRepositoryInterface from '../repository/ShortRepositoryItenface';
 export default class UrlShortenerController extends ContractController {
-    static redirectUrl(req: Request, res: Response): void;
-    static generateUrl(req: Request, res: Response): void;
+    private readonly repository;
+    private readonly urlGenerator;
+    constructor(repository: ShortRepositoryInterface, urlGenerator: URLGeneratorInterface);
+    redirectUrl: (req: Request, res: Response) => void;
+    generateUrl: (req: Request, res: Response) => void;
 }
