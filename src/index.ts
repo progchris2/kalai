@@ -1,5 +1,5 @@
 import DatabaseSQLite from "./applications/bases/database";
-import { HttpServer, Routes, routesList } from "./utils";
+import { HttpServer, Routes, routesList } from "./config";
 
 function bootstrap() {
     try {

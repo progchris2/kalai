@@ -6,11 +6,11 @@ import ContractController from '../../contract.controller'
  * gestion de la docs
  */
 export default class RedocsController extends ContractController {
-    public static swaggerDocument(req: Request, res: Response) {
-        RedocsController.fileRender(res, '/swagger.json');
+    public swaggerDocument = (req: Request, res: Response) => {
+        this.fileRender(res, '/swagger.json');
     };
 
-    public static convertToRedocs(req: Request, res: Response) {
-        RedocsController.fileRender(res, '/public/index.html');
+    public convertToRedocs = (req: Request, res: Response) => {
+        this.fileRender(res, '/public/index.html');
     }
 }

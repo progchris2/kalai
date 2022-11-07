@@ -4,7 +4,9 @@ import RedocsController from "../controller/Redocs";
 
 const router = Router()
 
+const controller = new RedocsController()
+
 export default [
-    router.get("/", RedocsController.convertToRedocs),
-    router.get("/swagger", RedocsController.swaggerDocument),
+    router.get("/", controller.convertToRedocs),
+    router.get("/swagger", controller.swaggerDocument),
 ];

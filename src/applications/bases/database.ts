@@ -7,24 +7,15 @@ class DatabaseSQLite extends Database {
     constructor() {
         super('database.db');
     }
-
-    /**
-     * @return DatabaseSQLite
-     */
+   
     static get instance(): DatabaseSQLite {
-        if (!this.db) {
+        if (!this.db) 
             this.db = new DatabaseSQLite()
-        }
         return this.db;
     }
-
-    /**
-     * @return void
-     */
-    public initialize() {
-        for (let table of createTable) {
-            this.exec(table);
-        }
+    
+    public initialize(): void {
+        for (let table of createTable) this.exec(table);
     }
 }
 

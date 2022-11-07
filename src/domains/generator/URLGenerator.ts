@@ -1,23 +1,21 @@
-import URLGeneratorInterface from "./URLGeneratorInterface";
+import { URLGeneratorType, URLGeneratorInterface } from "./URLGeneratorInterface";
 
-export interface URLGeneratorType {
-    long: string;
-    short: string;
-}
+class URLGenerator implements URLGeneratorInterface {
+    private test = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
 
+    public generate(url: string, id: string): URLGeneratorType {
+        if (!this.isValidUrl(url))
+            throw new Error('invalid url');
 
-class URLGenerator {
-
-    /**
-     *
-     * @param url{string}
-     * @param id{string}
-     */
-    public static generate(url: string, id: string): URLGeneratorType {
         return  {
-            long: url,
-            short: 'http://localhost:8090' + '/short/' + id.substring(0, 12)
+            originalUri: url,
+            shortUrl: id.substring(0, 12)
         }
+    }
+
+    private isValidUrl(url: string): boolean {
+        const regex = new RegExp(this.test)
+        return regex.test(url)
     }
 };
 
