@@ -1,11 +1,8 @@
 export interface URLGeneratorType {
-    long: string;
-    short: string;
-}
-
-
-interface URLGeneratorInterface  {
-    generate(url: string, id: string): URLGeneratorType;
+    originalUri: string;
+    shortUrl: string;
 };
 
-export default URLGeneratorInterface;
+export interface URLGeneratorInterface  {
+    generate(url: string, id: string): URLGeneratorType;
+};
