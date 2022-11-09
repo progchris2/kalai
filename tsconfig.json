@@ -16,6 +16,11 @@
     "allowJs": true,
     "checkJs": false,
     "rootDir": "src",
+    "types": ["reflect-metadata"],
+    "moduleResolution": "node",
+    "paths": {
+      "src/*": ["src/*"]
+    }
   },
   "exclude": ["node_modules", "test", "dist", "**/*spec.ts", "scripts", "babel.config.js", "coverage"]
 }

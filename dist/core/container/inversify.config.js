@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.container = void 0;
+const inversify_1 = require("inversify");
+const Database = require('better-sqlite3');
+const types_1 = require("./types");
+const ShortRepository_1 = require("../../infra/modules/urlShortener/repository/ShortRepository");
+const URLGenerator_1 = require("../../domains/generator/URLGenerator");
+const UrlShortener_1 = require("../../infra/modules/urlShortener/controller/UrlShortener");
+const database_1 = require("../../applications/bases/database");
+const container = new inversify_1.Container();
+exports.container = container;
+container.bind(types_1.TYPES.DatabaseInterface).to(database_1.default).inSingletonScope();
+container.bind(types_1.TYPES.ShortRepositoryInterface).to(ShortRepository_1.default);
+container.bind(types_1.TYPES.URLGeneratorInterface).to(URLGenerator_1.default);
+container.bind(types_1.TYPES.UrlShortenerController).to(UrlShortener_1.default);
