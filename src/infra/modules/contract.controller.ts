@@ -1,5 +1,7 @@
 import {Response} from 'express'
+import { injectable } from 'inversify';
 
+@injectable()
 abstract class ContractController {
     public jsonRender<T extends object>(res: Response, data: T, code = 200): void {
         res.status(code).json(data);

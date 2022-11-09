@@ -1,8 +1,9 @@
-declare const Database: any;
-declare class DatabaseSQLite extends Database {
-    private db?;
+declare const BetterSqlite3: any;
+import { DatabaseInterface } from './DatabaseInterface';
+declare class DatabaseSQLite implements DatabaseInterface {
+    private db;
     constructor();
-    static get instance(): DatabaseSQLite;
     initialize(): void;
+    prepare(source: string): typeof BetterSqlite3.Statement;
 }
 export default DatabaseSQLite;

@@ -1,4 +1,3 @@
-import DatabaseSQLite from "../../../..//applications/bases/database";
 import { URLGeneratorType } from "../../../../domains/generator/URLGeneratorInterface";
 
 interface ShortRepositoryInterface {

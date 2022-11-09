@@ -1,6 +1,4 @@
 import {Express, Router} from 'express'
-import DatabaseSQLite from 'src/applications/bases/database';
-
 
 export default class Routes {
   constructor(
