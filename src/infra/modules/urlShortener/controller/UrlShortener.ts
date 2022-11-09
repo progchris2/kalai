@@ -1,17 +1,18 @@
 import { v4 as uuidv4 } from 'uuid';
 import {Request, Response} from 'express'
+import { injectable, inject } from "inversify";
 
-import DatabaseSQLite from '../../../../applications/bases/database'
 import ContractController from '../../contract.controller'
 import {URLGeneratorInterface} from '../../../../domains/generator/URLGeneratorInterface';
-import ShortRepositoryInterface from '../repository/ShortRepositoryItenface';
-import URLGenerator from '../../../../domains/generator/URLGenerator';
+import ShortRepositoryInterface from '../repository/ShortRepositoryInterface';
+import { TYPES } from '../../../../core/container/types';
 
+@injectable()
 export default class UrlShortenerController extends ContractController {
 
     constructor(
-        private readonly repository: ShortRepositoryInterface,
-        private readonly urlGenerator: URLGeneratorInterface
+        @inject(TYPES.ShortRepositoryInterface) private readonly repository: ShortRepositoryInterface,
+        @inject(TYPES.URLGeneratorInterface) private readonly urlGenerator: URLGeneratorInterface
     ) {
         super()
     }
