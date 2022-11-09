@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import ContractController from '../../contract.controller';
 import { URLGeneratorInterface } from '../../../../domains/generator/URLGeneratorInterface';
-import ShortRepositoryInterface from '../repository/ShortRepositoryItenface';
+import ShortRepositoryInterface from '../repository/ShortRepositoryInterface';
 export default class UrlShortenerController extends ContractController {
     private readonly repository;
     private readonly urlGenerator;

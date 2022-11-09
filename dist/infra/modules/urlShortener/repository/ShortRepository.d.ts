@@ -1,11 +1,11 @@
 import { URLGeneratorType } from "../../../../domains/generator/URLGeneratorInterface";
-import DatabaseSQLite from "../../../../applications/bases/database";
-import ShortRepositoryInterface from "./ShortRepositoryItenface";
+import { DatabaseInterface } from "../../../../applications/bases/DatabaseInterface";
+import ShortRepositoryInterface from "./ShortRepositoryInterface";
 declare class ShortRepository implements ShortRepositoryInterface {
     private readonly db;
-    constructor(db: DatabaseSQLite);
+    constructor(db: DatabaseInterface);
     findUniqByShort(shortUrl: string): any;
     shortIsExisting(shortUrl: string): boolean;
-    insertUrl(urls: URLGeneratorType): void;
+    insertUrl(urls: URLGeneratorType): any;
 }
 export default ShortRepository;

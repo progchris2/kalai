@@ -1,12 +1,12 @@
 import { Router } from "express";
-import UrlShortFactory from "../../../../config/factory/UrlShortFactory";
-import DatabaseSQLite from "../../../../applications/bases/database";
-import URLGenerator from "../../../../domains/generator/URLGenerator";
-import UrlShortenerController from "../controller/UrlShortener";
-import ShortRepository from "../repository/ShortRepository";
 
-const controller = new UrlShortFactory().getController
+import { TYPES } from "../../../../core/container/types";
+import { container } from "../../../../core/container/inversify.config";
+import UrlShortenerController from "../controller/UrlShortener";
+
 const router = Router()
+const controller = container.get<UrlShortenerController>(TYPES.UrlShortenerController);
+
 
 export default [
     router.get("/api/shorturl/:id", controller.redirectUrl),
